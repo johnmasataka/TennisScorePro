@@ -1,1 +1,1 @@
-# TennisScorePro
+# TennisScorePro - Interactive Tennis Scoring Trainer

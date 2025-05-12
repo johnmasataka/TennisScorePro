@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tennis Scoring Trainer - Quiz 1</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<style>
+  .back-btn, .next-btn {
+      background-color: #B9FF66;
+      color: black;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: 2px solid #000;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 40px;
+      width: 60px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+</style>
+<body>
+  <div class="quiz-container">
+    <!-- Top Navigation -->
+    <div class="top-nav">
+      <div class="logo">
+        <span class="star">★</span>
+        <span class="logo-text">Tennis Scoring Trainer</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="learning1.html" class="nav-link">Learning</a>
+        <a href="preview.html" class="nav-link active">Quiz</a>
+        <a href="results.html" class="nav-link">Results</a>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-section">
+      <h2 class="quiz-title">Quiz: Point Progression</h2>
+      <div class="progress-container">
+        <span class="progress-label">PROGRESS</span>
+        <div class="progress-bar">
+          <div class="progress-step active"></div>
+          <div class="progress-step"></div>
+          <div class="progress-step"></div>
+          <div class="progress-step"></div>
+          <div class="progress-step"></div>
+          <div class="progress-step"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Question -->
+    <div class="quiz-question-container">
+      <h3 class="question-title">
+        The score is 30-30. Player B wins the point. What's the new score?  </h3>
+      <div class="options-container">
+        <div class="options-list">
+          <div class="option"  data-correct="true">
+            <input type="radio" name="answer" id="option-a">
+            <label for="option-a">a) 40-30.</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="answer" id="option-b">
+            <label for="option-b">b) Deuce.</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="answer" id="option-c">
+            <label for="option-c">c) Game B.</label>
+          </div>
+          <!--<div class="option">
+            <input type="radio" name="answer" id="option-d">
+            <label for="option-d">d) The score in a set is 5–4.</label>
+          </div>-->
+        </div>
+        <div class="feedback-container">
+          <div class="feedback-correct">Correct! See explanation below.</div>
+          <div class="feedback-incorrect">Incorrect! Try again.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Explanation -->
+    <div id="explanation" style="padding: 20px 100px; display: none;">
+      <h4 style="margin-bottom: 10px;">Explanation:</h4>
+      <ul style="text-align: left; line-height: 1.6; font-size: 18px;">
+        <li><strong>40-30</strong> — Yes! 'Love' in tennis means zero points.</li>
+        <li><strong>Deuce</strong> — No, 'Love' does not refer to a tie situation.</li>
+        <li><strong>Game B</strong> — Incorrect! 'Love' isn't the first point, it simply means zero.</li>
+      </ul>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation-container">
+      <a href="quiz1.html" class="back-btn"><img src="https://i.imgur.com/ZO6RzoY.png" referrerpolicy="no-referrer" style="width: 20px; height: 50; transform: rotate(180deg)" />
+      </a>
+      <span class="nav-text">Next: Deuce MCQ Scenario</span>
+      <a href="quiz2.html" class="next-btn"><img src="https://i.imgur.com/ZO6RzoY.png" referrerpolicy="no-referrer" style="width: 20px; height: 50;" />
+        </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const options = document.querySelectorAll(".option");
+    const feedbackCorrect = document.querySelector(".feedback-correct");
+    const feedbackIncorrect = document.querySelector(".feedback-incorrect");
+    const explanation = document.getElementById("explanation");
+
+    options.forEach(option => {
+      option.addEventListener("click", () => {
+        if (option.hasAttribute("data-correct")) {
+          feedbackCorrect.style.display = "block";
+          feedbackIncorrect.style.display = "none";
+          explanation.style.display = "none";
+          // Save correct answer
+          let correct = Number(localStorage.getItem('correctAnswers') || 0);
+          localStorage.setItem('correctAnswers', correct + 1);
+          explanation.style.display = "block"; // show explanation if correct only
+
+        } else {
+          feedbackIncorrect.style.display = "block";
+          feedbackCorrect.style.display = "none";
+          explanation.style.display = "none";
+
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+

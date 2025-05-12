@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tennis Scoring Trainer - Results</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .results-container {
+      padding: 80px 100px;
+      text-align: center;
+    }
+
+    .results-title {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .results-subtitle {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    .results-score {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      background-color: #B9FF66;
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 12px;
+      color: black;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .btn-results {
+      padding: 14px 28px;
+      font-size: 20px;
+      font-weight: 600;
+      border-radius: 10px;
+      border: 2px solid #000;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-home {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .btn-quiz {
+      background-color: #B9FF66;
+      color: #000;
+    }
+
+    .btn-results:hover {
+      opacity: 0.9;
+    }
+
+    .top-nav {
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    #stats-container {
+      text-align: center;
+      margin: 40px auto;
+      max-width: 800px;
+    }
+
+    #stats-container h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #000;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .stats-table th,
+    .stats-table td {
+      padding: 15px 20px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .stats-table th {
+      color: #000;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .stats-table td {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .stats-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .stats-table tr:hover {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <!-- Top Navigation -->
+    <div class="top-nav">
+      <div class="logo">
+        <span class="star">★</span>
+        <span class="logo-text">Tennis Scoring Trainer</span>
+      </div>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="learning1.html" class="nav-link">Learning</a>
+          <a href="preview.html" class="nav-link">Quiz</a>
+          <a href="results.html" class="nav-link active">Results</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Content -->
+    <div class="results-container">
+      <h1 class="results-title">Congratulations!</h1>
+      <p class="results-subtitle">You've completed the Tennis Scoring Quiz.</p>
+
+      <div id="score" class="results-score">
+        <!-- Final score will be inserted here -->
+      </div>
+
+      <div id="stats-container">
+        <!-- Statistics will be displayed here -->
+      </div>
+
+      <div class="button-group">
+        <a href="preview.html" class="btn-results btn-quiz">Retake Quiz</a>
+        <a href="index.html" class="btn-results btn-home">Return Home</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation-buttons">
+    <a href="index.html" class="button">Back to Home</a>
+  </div>
+
+  <script>
+    // Calculate and show score
+    const quizResults = JSON.parse(localStorage.getItem('quizResults') || '{}');
+    const totalCorrect = Object.values(quizResults).reduce((sum, score) => sum + score, 0);
+    const totalQuestions = 6;
+    document.getElementById('score').innerText = `You got ${totalCorrect}/${totalQuestions} correct!`;
+  </script>
+
+  <script src="script.js"></script>
+  <script>
+    // Display statistics when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      displayUserStats();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tennis Scoring Trainer - Page Preview</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    .preview-container {
+      padding: 60px 100px;
+      text-align: center;
+    }
+
+    .preview-title {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .btn-preview {
+      padding: 16px 32px;
+      font-size: 20px;
+      font-weight: 600;
+      border-radius: 10px;
+      border: 2px solid #000;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-quiz {
+      background-color: #B9FF66;
+      color: #000;
+    }
+
+    .btn-return {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .btn-preview:hover {
+      opacity: 0.9;
+    }
+
+    .top-nav {
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <!-- Top Navigation -->
+    <div class="top-nav">
+      <div class="logo">
+        <span class="star">★</span>
+        <span class="logo-text">Tennis Scoring Trainer</span>
+      </div>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="learning1.html" class="nav-link">Learning</a>
+          <a href="preview.html" class="nav-link active">Quiz</a>
+          <a href="results.html" class="nav-link">Results</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="preview-container">
+      <h1 class="preview-title">Ready to Begin the Quiz?</h1>
+      <div class="button-group">
+        <a href="learning1.html" class="btn-preview btn-return">Return to Learning</a>
+        <a href="quiz1.html" class="btn-preview btn-quiz">Start the Quiz</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
